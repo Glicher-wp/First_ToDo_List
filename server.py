@@ -19,9 +19,14 @@ def send_static(filename):
 @view("index")
 def index():
     tasks = s.query(TodoItem).order_by(TodoItem.uid)
+    return {"tasks": tasks}
+
+
+@route('/counter', methods=['GET'])
+def counter():
     total_tasks = s.query(TodoItem).count()
     incomplete = s.query(TodoItem).filter(TodoItem.is_completed == False).count()
-    return {"tasks": tasks}
+    return str(total_tasks)
 
 
 @route("/add-task", method="POST")
