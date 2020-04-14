@@ -8,8 +8,7 @@
     <body>
         <div class="container">
             <h1>Текущие задачи</h1>
-            % for count in tts:
-            <h2>{{  count }}</h2>
+            <h2 id="counter"></h2>
             <ul id="todo-list">
             % for task in tasks:
                 % if task.is_completed:
